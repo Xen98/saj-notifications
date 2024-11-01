@@ -1,0 +1,94 @@
+<style>
+
+</style>
+
+<div (click)="onCloseModal()" class="fixed inset-0 w-full h-full bg-black opacity-70" ></div>
+
+<div class="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-white p-5 rounded-md max-w-[500px] w-full shadow-md flex flex-col items-center">
+  <h2>{{ title() }}</h2>
+
+  <form
+    [formGroup]="notificationForm"
+    class="my-9 px-9 flex flex-col gap-4 w-full m-auto max-h-[500px] overflow-y-auto"
+  >
+    <app-custom-input
+      label="Mensaje:"
+      type="text"
+      id="new-message"
+      placeholder="Ingresa el mensaje"
+      errorMessage="Por favor ingresa el mensaje"
+      [control]="notificationForm.get('message')"
+    />
+
+    <app-custom-input
+      label="Empresa:"
+      type="text"
+      id="new-company"
+      placeholder="Ingresa la empresa"
+      errorMessage="Por favor ingresa la empresa"
+      [control]="notificationForm.get('company_id')"
+    />
+
+    <app-custom-input
+      label="Pais:"
+      type="text"
+      id="new-country"
+      placeholder="Ingresa el pais"
+      errorMessage="Por favor ingresa el pais"
+      [control]="notificationForm.get('country_id')"
+    />
+
+    <app-custom-input
+      label="Sistema:"
+      type="text"
+      id="new-system"
+      placeholder="Ingresa el sistema"
+      errorMessage="Por favor ingresa el sistema"
+      [control]="notificationForm.get('system_id')"
+    />
+
+    <app-custom-input
+      label="Duración:"
+      type="number"
+      id="new-duration"
+      placeholder="Ingresa la duración"
+      errorMessage="Por favor ingresa la duración"
+      [control]="notificationForm.get('duration')"
+    />
+
+    <app-custom-input
+      label="Tipo:"
+      type="text"
+      id="new-type"
+      placeholder="Ingresa el tipo"
+      errorMessage="Por favor ingresa el tipo"
+      [control]="notificationForm.get('type')"
+    />
+
+    <app-custom-input
+      label="Color:"
+      type="color"
+      id="new-color"
+      placeholder="Ingresa el color"
+      errorMessage="Por favor ingresa el color"
+      [control]="notificationForm.get('color')"
+    />
+  </form>
+
+  <div class="flex gap-4 mt-4 justify-between w-full">
+    <button
+    (click)="onCloseModal()"
+    class="bg-gray-500 text-white h-10 font-bold py-2 px-4 rounded cursor-pointer hover:bg-gray-700"
+    >
+    Cerrar
+  </button>
+
+    <button
+      (click)="onSubmit()"
+      class="bg-blue-500 text-white h-10 font-bold py-2 px-4 rounded cursor-pointer hover:bg-blue-700"
+    >
+      Guardar
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<nav class="w-[200px] bg-blue-950 text-white h-screen flex flex-col justify-between">
+  <section class="py-8">
+    <h2 class="text-3xl font-bold text-center mb-10 select-none">SAJ</h2>
+    <ul>
+      <li>
+        <app-menu-link url="notifications" text="Notificaciones" />
+      </li>
+      <li>
+        <app-menu-link url="countries" text="Paises" />
+      </li>
+      <li>
+        <app-menu-link url="companies" text="Empresas" />
+      </li>
+      <li>
+        <app-menu-link url="systems" text="Sistemas" />
+      </li>
+    </ul>
+  </section>
+
+  <a
+    class="block px-3 py-2 bg-red-600 hover:bg-red-800 cursor-pointer select-none font-bold"
+    (click)="logOut()"
+  >
+    Cerrar sesion
+  </a>
+</nav>

@@ -1,0 +1,45 @@
+<section class="flex justify-between">
+  <h1 class="text-3xl font-bold mb-10">Notificaciones</h1>
+
+  <div class="flex gap-4">
+    <button
+      (click)="openNewNotificationModal()"
+      type="button"
+      class="bg-blue-500 text-white h-10 font-bold py-2 px-4 rounded cursor-pointer hover:bg-blue-700"
+    >
+      Nueva notificacion
+    </button>
+  </div>
+</section>
+
+<section class="w-full h-[80px] my-2">
+    <app-alert-container
+      [notification]="alertNotification"
+    />
+</section>
+
+
+<section class="bg-white shadow-md p-9 rounded-lg overflow-x-scroll">
+  @let notificationsList = notifications();
+
+  @if (notificationsList === undefined || notificationsList?.length === 0) {
+    <p>No hay notificaciones para mostrar.</p>
+  } @else {
+    <app-notifications-list
+      [notifications]="notificationsList"
+      (onUpdateNotification)="openUpdateNotificationModal($event)"
+      (onDeleteNotification)="deleteNotification($event)"
+    />
+  }
+</section>
+
+@if (showModal()) {
+  <app-notification-modal
+    title="Nueva notificación"
+    [typeModal]="typeModal()"
+    [currentNotification]="currentNotification()"
+    (closeModal)="closeNewNotificationModal()"
+    (onAddNotification)="addNotification($event)"
+    (onUpdateNotification)="updateNotification($event)"
+  />
+}

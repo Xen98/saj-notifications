@@ -1,0 +1,18 @@
+<div class="flex flex-col">
+  <label for="{{id()}}">{{label()}}</label>
+
+  <input
+    [formControl]="$any(control())"
+    [placeholder]="placeholder()"
+    [id]="id()"
+    [type]="type()"
+    class="border border-gray-300 rounded-lg p-2"
+  />
+
+  <div class="text-red-500 h-6 text-sm">
+    @if(control()!.invalid && control()!.touched) {
+      <span>{{errorMessage()}}</span>
+    }
+  </div>
+
+</div>

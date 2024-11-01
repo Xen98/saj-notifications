@@ -1,0 +1,27 @@
+<table class="w-full min-w-[950px]">
+  <thead>
+    <tr class="text-left">
+      <th class="border-b border-b-blue-100 p-2">#</th>
+      <th class="border-b border-b-blue-100 p-2">Mensaje</th>
+      <th class="border-b border-b-blue-100 p-2">Empresa</th>
+      <th class="border-b border-b-blue-100 p-2">País</th>
+      <th class="border-b border-b-blue-100 p-2">Sistema</th>
+      <th class="border-b border-b-blue-100 p-2">Duración</th>
+      <th class="border-b border-b-blue-100 p-2">Tipo</th>
+      <th class="border-b border-b-blue-100 p-2">Color</th>
+      <th class="border-b border-b-blue-100 p-2 w-[120px] text-center"></th>
+      <th class="border-b border-b-blue-100 p-2 w-[120px] text-center"></th>
+    </tr>
+  </thead>
+  <tbody >
+    @for (notification of notifications(); track notification.id; let i = $index) {
+      <app-notification-detail
+        [notification]="notification"
+        [index]="i"
+        (onUpdateNotification)="emitUpdateNotification($event)"
+        (onDeleteNotification)="emitDeleteNotification($event)"
+      />
+    }
+  </tbody>
+</table>
+
