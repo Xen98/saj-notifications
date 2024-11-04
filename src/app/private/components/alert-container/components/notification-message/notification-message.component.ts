@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { Alert } from '../../models';
 
@@ -11,4 +11,9 @@ import { Alert } from '../../models';
 })
 export class NotificationMessageComponent {
   notification = input.required<Alert>();
+  onCloseNotification = output<boolean>();
+
+  emitCloseNotification() {
+    this.onCloseNotification.emit(true);
+  }
 }

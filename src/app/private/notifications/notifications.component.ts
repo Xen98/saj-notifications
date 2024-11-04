@@ -31,7 +31,8 @@ export class NotificationsComponent {
       system_id: 0,
       duration: 0,
       type: NotificationType.Info,
-      color: ''
+      color: '',
+      button: 0
     },
     message: '',
     show: false

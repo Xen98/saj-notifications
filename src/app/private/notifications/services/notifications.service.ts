@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { catchError, of } from 'rxjs';
 
-import { Notification, NotificationResponse, NotificationsResponse } from '@/private/notifications/models';
+import { Notification, NotificationsResponse } from '@/private/notifications/models';
 import { ServerResponse } from '@/models/server.model';
 
 @Injectable({

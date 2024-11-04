@@ -1,0 +1,29 @@
+<div class="flex flex-col">
+  <label for="{{id()}}">{{label()}}</label>
+
+  <select
+    [formControl]="$any(control())"
+    [id]="id()"
+    class="border border-gray-300 rounded-lg p-2 cursor-pointer bg-white"
+  >
+    @for (option of options(); track option.id) {
+      <option
+        [value]="option.value"
+        [selected]="option.default"
+        [disabled]="option.default"
+        [selected]="option.value === control()!.value"
+        class="cursor-pointer"
+      >
+        {{option.label}}
+      </option>
+    }
+  </select>
+
+
+  <div class="text-red-500 h-6 text-sm">
+    @if(control()!.invalid && control()!.touched) {
+      <span>{{errorMessage()}}</span>
+    }
+  </div>
+
+</div>

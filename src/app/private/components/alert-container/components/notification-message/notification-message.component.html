@@ -1,6 +1,15 @@
 <div
   [style]="{'background-color': notification().notificationConfig.color}"
-  class="p-3 w-full"
+  class="p-3 w-full flex justify-between items-center"
 >
   <span class="bg-white p-1 rounded-md">{{notification().message}}</span>
+
+  @if (notification().notificationConfig.button == 1) {
+    <button
+      (click)="emitCloseNotification()"
+      class="bg-gray-500 text-white h-10 font-bold py-2 px-4 rounded cursor-pointer hover:bg-gray-700"
+    >
+      Cerrar
+    </button>
+  }
 </div>

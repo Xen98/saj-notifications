@@ -13,10 +13,11 @@
 @let notificationDetail = notification();
 
 <td class="border-b border-b-blue-100 p-2">{{index() + 1}}</td>
+<td class="border-b border-b-blue-100 p-2">{{notificationDetail.id}}</td>
 <td class="border-b border-b-blue-100 p-2">{{notificationDetail.message}}</td>
-<td class="border-b border-b-blue-100 p-2">{{notificationDetail.company_id}}</td>
-<td class="border-b border-b-blue-100 p-2">{{notificationDetail.country_id}}</td>
-<td class="border-b border-b-blue-100 p-2">{{notificationDetail.system_id}}</td>
+<td class="border-b border-b-blue-100 p-2">{{notificationDetail.company}}</td>
+<td class="border-b border-b-blue-100 p-2">{{notificationDetail.country}}</td>
+<td class="border-b border-b-blue-100 p-2">{{notificationDetail.system}}</td>
 <td class="border-b border-b-blue-100 p-2">{{notificationDetail.duration}}</td>
 <td class="border-b border-b-blue-100 p-2">{{notificationDetail.type}}</td>
 <td class="border-b border-b-blue-100 p-2" [style]="{'background-color': notificationDetail.color}">

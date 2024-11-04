@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, OnChanges, output, signal, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnChanges, signal, SimpleChanges } from '@angular/core';
 import { NotificationMessageComponent } from './components';
 import { Alert } from './models';
 
@@ -11,8 +11,6 @@ import { Alert } from './models';
 })
 export class AlertContainerComponent implements OnChanges {
   notification = input.required<Alert>();
-
-  onCloseNotification = output<boolean>();
 
   displayNotificationMessage = signal<boolean>(false);
 
@@ -38,5 +36,13 @@ export class AlertContainerComponent implements OnChanges {
         }, this.notificationTime * 1000);
       }
     }
+  }
+
+  closeNotification() {
+    if (this.timeoutRef) {
+      clearTimeout(this.timeoutRef);
+    }
+
+    this.displayNotificationMessage.set(false);
   }
 }
